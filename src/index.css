@@ -24,5 +24,85 @@ body {
   background-color: #fff;
   border-radius: 8px;
   box-sizing: border-box;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px #333;
+}
+
+.task {
+  display: flex;
+  gap: 5px;
+  width: 80%;
+  box-shadow: 0 2px 4px #444;
+  box-sizing: border-box;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #fff;
+  align-items: center;
+  justify-content: space-between;
+
+  p {
+    margin: 0;
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+
+    &.done {
+      text-decoration: line-through;
+      color: #999;
+    }
+  }
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #0070f3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #0056b3;
+    scale: 1.05;
+  }
+
+  &:active {
+    background-color: #00418b;
+    scale: 0.95;
+  }
+}
+
+.input {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 1rem;
+  box-sizing: border-box; 
+}
+
+.checkbox {
+  margin-right: 1rem;
+  transform: scale(1.5);
+
+  &:checked {
+    transform: scale(1.5) rotate(360deg);
+  }
+}
+
+.delete {
+  margin-left: auto;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 1.2rem;
+  transition: color 0.2s ease;
+
+  img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    color: #ff0000;
+  }
 }
