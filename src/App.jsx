@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 export default function App() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
+  const [modalError, setModalError] = useState({ message: '', show: false });
 
   useEffect(() => {
     let task = window.localStorage.getItem('task');
@@ -27,8 +28,11 @@ export default function App() {
       task: newTask,
     };
     
-    if (task.task.length > 44) {
-      alert("You can't add more than 45 tasks!");
+    if (task.task.length > 45) {
+      setModalError({
+        message: 'Task must be less than 45 characters',
+        show: true,
+      })
       setNewTask('');
       return;
     }
@@ -66,6 +70,15 @@ export default function App() {
           <p>No tasks yet. Add one above!</p>
         )
       }
+
+      {modalError.show && (
+        <div className="modal">
+          <div className="modal-body">
+            <p>{modalError.message}</p>
+            <button className="close" onClick={() => setModalError({ message: '', show: false })}>&times;</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
