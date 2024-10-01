@@ -1,7 +1,15 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function App() {
-  const [tasks] = useState([])
+  const [tasks, setTasks] = useState([])
+
+  useEffect(() => {
+    fetch('/api/tasks')
+      .then(response => response.json())
+      .then(data => setTasks(data))
+      .catch(error => console.error('Error fetching tasks:', error));
+  }, []);
+
 
   return (
     <div className="App">
